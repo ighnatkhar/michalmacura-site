@@ -1,1 +1,2 @@
-# michalmacura.github.io
+# michalmacura-site
+# code for michalmacura.pl photography site
