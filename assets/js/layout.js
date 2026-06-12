@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    fetch("/assets/partials/footer.html")
-        .then(res => res.text())
+    fetch("/michalmacura-site/assets/partials/footer.html")
+        .then(res => {
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            return res.text();
+        })
         .then(data => {
             document.querySelector(".site-footer").innerHTML = data;
         })
