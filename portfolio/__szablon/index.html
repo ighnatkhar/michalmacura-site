@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         TYTUŁ STRONY (zmień dla każdej galerii)
+         ========================= -->
+    <title>Galeria A – Michał Macura</title>
+
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU (zawsze identyczne)
+         NIE ZMIENIAJ ŚCIEŻEK BEZ ZROZUMIENIA STRUKTURY
+         ========================= -->
+    <header class="site-header">
+
+        <nav class="navigation">
+            <a href="../../index.html">michał macura</a>
+            <a href="../../notatki-z-terenu/">notatki z terenu</a>
+            <a href="../">portfolio</a>
+            <a href="../../kontakt/">kontakt</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- =========================
+             NAZWA GALERII
+             ========================= -->
+        <h1>Galeria A</h1>
+
+        <!-- =========================
+             KRÓTKI OPIS (opcjonalny)
+             ========================= -->
+        <p>
+            Krótki opis galerii. Tutaj wpisujesz kontekst sesji,
+            miejsce, czas lub obserwację.
+        </p>
+
+        <!-- =========================
+             GALERIA ZDJĘĆ
+             ZASADA:
+             - każde <img> = jedno zdjęcie
+             - wszystkie zdjęcia muszą być w folderze galerii
+             - lightbox działa automatycznie na klasie photo-grid
+             ========================= -->
+
+        <div class="photo-grid">
+
+            <!-- ZDJĘCIE 1 -->
+            <img src="img1.jpg" alt="Opis zdjęcia 1">
+
+            <!-- ZDJĘCIE 2 -->
+            <img src="img2.jpg" alt="Opis zdjęcia 2">
+
+            <!-- ZDJĘCIE 3 -->
+            <img src="img3.jpg" alt="Opis zdjęcia 3">
+
+            <!-- ZDJĘCIE 4 -->
+            <img src="img4.jpg" alt="Opis zdjęcia 4">
+
+            <!--
+                DODAWANIE ZDJĘĆ:
+                kopiuj linijkę <img ...>
+                i zmieniaj tylko nazwę pliku
+            -->
+
+        </div>
+
+    </main>
+
+    <!-- =========================
+         STOPKA
+         ========================= -->
+    <footer class="site-footer">
+        <p>© 2026 michał macura</p>
+    </footer>
+
+    <!-- =========================
+         LIGHTBOX JS
+         WAŻNE:
+         - ścieżka "../../" bo jesteśmy 2 poziomy głębiej
+         ========================= -->
+    <script src="../../assets/js/lightbox.js"></script>
+
+</body>
+
+</html>
