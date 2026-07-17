@@ -302,3 +302,22 @@ main {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* =========================
+   ZPFP
+   ========================= */
+
+.zpfp-logo {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.zpfp-logo img {
+    width: 180px;
+    height: auto;
+    transition: opacity 0.2s ease;
+}
+
+.zpfp-logo img:hover {
+    opacity: 0.75;
+}
