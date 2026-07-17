@@ -113,23 +113,15 @@ main {
    ========================= */
 
 .site-footer {
+    width: 100%;
     padding: 2rem 1.5rem;
     text-align: center;
     font-size: 0.9rem;
 }
 
-.site-footer::before {
-    content: "";
-    display: block;
-    height: 1px;
-    max-width: 900px;
-    margin: 0 auto 2rem;
-    background: linear-gradient(
-        to right,
-        transparent,
-        var(--line),
-        transparent
-    );
+.site-footer p {
+    margin: 0;
+    text-align: center;
 }
 
 /* =========================
