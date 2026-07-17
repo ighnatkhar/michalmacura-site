@@ -308,8 +308,9 @@ main {
    ========================= */
 
 .zpfp-logo {
+    display: flex;
+    justify-content: center;
     margin-top: 2rem;
-    text-align: center;
 }
 
 .zpfp-logo img {
