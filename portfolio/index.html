@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- TYTUŁ STRONY -->
     <title>Portfolio – Michał Macura</title>
+
+    <meta name="description"
+        content="Wybrane fotografie Michała Macury.">
 
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -13,8 +17,9 @@
 <body>
 
     <!-- =========================
-         MENU (STAŁE NA KAŻDEJ STRONIE)
+         MENU
          ========================= -->
+
     <header class="site-header">
 
         <nav class="navigation">
@@ -26,84 +31,79 @@
 
     </header>
 
+
     <main>
 
         <!-- =========================
-             TYTUŁ SEKCJI
+             TYTUŁ
              ========================= -->
+
         <h1>portfolio</h1>
 
-        <!-- =========================
-             OPIS (opcjonalny)
-             ========================= -->
-        <p>
-            Zbiór galerii fotograficznych z pracy terenowej.
-        </p>
 
         <!-- =========================
-             SIATKA GALERII
-             ZASADA:
-             - KAŻDA KAFELKA = JEDNA GALERIA
-             - miniatura = PIERWSZE ZDJĘCIE W GALERII (img1.jpg)
+             GALERIA
+             
+             Wszystkie zdjęcia znajdują się
+             bezpośrednio w folderze:
+             
+             portfolio/
+             
+             Nazwy plików:
+             img1.jpg
+             img2.jpg
+             img3.jpg
+             itd.
              ========================= -->
 
-        <div class="gallery-grid">
+        <div class="photo-grid">
 
-            <!-- =========================
-                 GALERIA A
-                 ========================= -->
-            <a class="gallery-card" href="galeria-a/">
+            <img src="img1.jpg" alt="Opis zdjęcia 1">
+            <img src="img2.jpg" alt="Opis zdjęcia 2">
+            <img src="img3.jpg" alt="Opis zdjęcia 3">
+            <img src="img4.jpg" alt="Opis zdjęcia 4">
+            <img src="img5.jpg" alt="Opis zdjęcia 5">
+            <img src="img6.jpg" alt="Opis zdjęcia 6">
+            <img src="img7.jpg" alt="Opis zdjęcia 7">
+            <img src="img8.jpg" alt="Opis zdjęcia 8">
+            <img src="img9.jpg" alt="Opis zdjęcia 9">
+            <img src="img10.jpg" alt="Opis zdjęcia 10">
+            <img src="img11.jpg" alt="Opis zdjęcia 11">
+            <img src="img12.jpg" alt="Opis zdjęcia 12">
+<!--            <img src="img13.jpg" alt="Opis zdjęcia 13">
+            <img src="img14.jpg" alt="Opis zdjęcia 14">
+            <img src="img15.jpg" alt="Opis zdjęcia 15"> -->
 
-                <!-- MINIATURA = pierwsze zdjęcie z galerii -->
-                <img src="galeria-a/img1.jpg" alt="Galeria A – miniatura">
+            <!--
+            DODAWANIE KOLEJNYCH ZDJĘĆ:
 
-                <h3>galeria a</h3>
+            Skopiuj poniższą linię i zmień numer:
 
-            </a>
+            <img src="img16.jpg" alt="Opis zdjęcia 16">
 
-            <!-- =========================
-                 GALERIA B
-                 ========================= -->
-            <a class="gallery-card" href="galeria-b/">
-
-                <img src="galeria-b/img1.jpg" alt="Galeria B – miniatura">
-
-                <h3>galeria b</h3>
-
-            </a>
-
-            <!-- =========================
-                 GALERIA C
-                 ========================= -->
-            <a class="gallery-card" href="galeria-c/">
-
-                <img src="galeria-c/img1.jpg" alt="Galeria C – miniatura">
-
-                <h3>galeria c</h3>
-
-            </a>
-
-            <!-- =========================
-                 GALERIA D
-                 ========================= -->
-            <a class="gallery-card" href="galeria-d/">
-
-                <img src="galeria-d/img1.jpg" alt="Galeria D – miniatura">
-
-                <h3>galeria d</h3>
-
-            </a>
+            Możesz mieć np. 15, 20, 25 albo 30 zdjęć.
+            Lightbox automatycznie obejmie wszystkie.
+            -->
 
         </div>
 
     </main>
 
+
     <!-- =========================
          STOPKA
          ========================= -->
+
     <footer class="site-footer">
         <p>© 2026 michał macura</p>
     </footer>
+
+
+    <!-- =========================
+         LIGHTBOX
+         ========================= -->
+
+    <script src="../assets/js/lightbox.js"></script>
 
 </body>
 
