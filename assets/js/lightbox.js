@@ -1,80 +1,334 @@
 /*
-========================================
-LIGHTBOX – MICHAŁ MACURA (SETUP)
-========================================
+==========================================================
+LIGHTBOX – MICHAŁ MACURA
+==========================================================
 
-DECYZJE PROJEKTOWE:
+ZAŁOŻENIA:
 
-- jeden plik zdjęcia (brak miniatur)
-- zdjęcia w galerii = 1624×1080 px
-- brak dodatkowych wersji eksportu
-- lightbox używa tego samego pliku
-- priorytet: prosty workflow + minimalizm
-
-ZALETY:
-✔ brak podwójnego eksportu
-✔ szybka publikacja zdjęć
-✔ prosty system folderów
-✔ lekkie i stabilne rozwiązanie
-
-STRUKTURA:
-- HTML pokazuje obraz w gridzie
-- JS otwiera ten sam obraz w overlay
+- jedno zdjęcie = jeden plik
+- brak osobnych miniaturek
+- zdjęcia przygotowane do internetu: około 1624 × 1080 px
+- miniatura na stronie jest tym samym zdjęciem
+- po kliknięciu zdjęcie otwiera się w lightboxie
+- lightbox wykorzystuje ten sam plik zdjęcia
+- maksymalny rozmiar zdjęcia = rozmiar dostępnego ekranu
+- zdjęcie zachowuje proporcje
+- przechodzenie LEWO / PRAWO
+- galeria jest zapętlona:
+      ostatnie → pierwsze
+      pierwsze ← ostatnie
+- klawisz ESC zamyka lightbox
+- strzałki na klawiaturze zmieniają zdjęcia
+- przesunięcie palcem na telefonie zmienia zdjęcie
 - brak zewnętrznych bibliotek
 
-========================================
+==========================================================
 */
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Tworzymy overlay lightboxa
+    /*
+    ------------------------------------------------------
+    ZNAJDŹ WSZYSTKIE ZDJĘCIA GALERII
+    ------------------------------------------------------
+    */
+
+    const images = Array.from(
+        document.querySelectorAll(".photo-grid img")
+    );
+
+    // Jeżeli na stronie nie ma galerii, nic nie rób.
+    if (images.length === 0) {
+        return;
+    }
+
+
+    /*
+    ------------------------------------------------------
+    UTWORZENIE LIGHTBOXA
+    ------------------------------------------------------
+    */
+
     const lightbox = document.createElement("div");
-    lightbox.id = "lightbox";
-    lightbox.style.position = "fixed";
-    lightbox.style.top = "0";
-    lightbox.style.left = "0";
-    lightbox.style.width = "100%";
-    lightbox.style.height = "100%";
-    lightbox.style.background = "rgba(0,0,0,0.9)";
-    lightbox.style.display = "none";
-    lightbox.style.alignItems = "center";
-    lightbox.style.justifyContent = "center";
-    lightbox.style.zIndex = "1000";
-    lightbox.style.cursor = "zoom-out";
+    lightbox.className = "lightbox";
 
-    // Obraz w lightboxie
-    const img = document.createElement("img");
-    img.style.maxWidth = "90%";
-    img.style.maxHeight = "90%";
-    img.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
 
-    lightbox.appendChild(img);
+    /*
+    ------------------------------------------------------
+    PRZYCISK ZAMKNIĘCIA
+    ------------------------------------------------------
+    */
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "lightbox-close";
+    closeButton.setAttribute("aria-label", "Zamknij");
+
+    closeButton.innerHTML = "&times;";
+
+
+    /*
+    ------------------------------------------------------
+    PRZYCISK POPRZEDNIEGO ZDJĘCIA
+    ------------------------------------------------------
+    */
+
+    const previousButton = document.createElement("button");
+    previousButton.className = "lightbox-previous";
+    previousButton.setAttribute("aria-label", "Poprzednie zdjęcie");
+
+    previousButton.innerHTML = "&#10094;";
+
+
+    /*
+    ------------------------------------------------------
+    PRZYCISK NASTĘPNEGO ZDJĘCIA
+    ------------------------------------------------------
+    */
+
+    const nextButton = document.createElement("button");
+    nextButton.className = "lightbox-next";
+    nextButton.setAttribute("aria-label", "Następne zdjęcie");
+
+    nextButton.innerHTML = "&#10095;";
+
+
+    /*
+    ------------------------------------------------------
+    ZDJĘCIE W LIGHTBOXIE
+    ------------------------------------------------------
+    */
+
+    const lightboxImage = document.createElement("img");
+
+    lightboxImage.className = "lightbox-image";
+
+    lightboxImage.alt = "";
+
+
+    /*
+    ------------------------------------------------------
+    UMIESZCZENIE ELEMENTÓW W LIGHTBOXIE
+    ------------------------------------------------------
+    */
+
+    lightbox.appendChild(closeButton);
+    lightbox.appendChild(previousButton);
+    lightbox.appendChild(lightboxImage);
+    lightbox.appendChild(nextButton);
+
     document.body.appendChild(lightbox);
 
-    // Kliknięcie w dowolne zdjęcie z galerii
-    const images = document.querySelectorAll(".photo-grid img");
 
-    images.forEach(image => {
-        image.style.cursor = "pointer";
+    /*
+    ------------------------------------------------------
+    AKTUALNY NUMER ZDJĘCIA
+    ------------------------------------------------------
+    */
+
+    let currentIndex = 0;
+
+
+    /*
+    ------------------------------------------------------
+    FUNKCJA OTWIERAJĄCA LIGHTBOX
+    ------------------------------------------------------
+    */
+
+    function openLightbox(index) {
+
+        currentIndex = index;
+
+        updateLightbox();
+
+        lightbox.classList.add("is-open");
+
+        document.body.classList.add("lightbox-open");
+    }
+
+
+    /*
+    ------------------------------------------------------
+    FUNKCJA ZAMYKAJĄCA LIGHTBOX
+    ------------------------------------------------------
+    */
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("is-open");
+
+        document.body.classList.remove("lightbox-open");
+
+        lightboxImage.src = "";
+    }
+
+
+    /*
+    ------------------------------------------------------
+    AKTUALIZACJA ZDJĘCIA
+    ------------------------------------------------------
+    */
+
+    function updateLightbox() {
+
+        const image = images[currentIndex];
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt = image.alt;
+    }
+
+
+    /*
+    ------------------------------------------------------
+    NASTĘPNE ZDJĘCIE
+    ------------------------------------------------------
+    */
+
+    function nextImage() {
+
+        currentIndex++;
+
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+
+        updateLightbox();
+    }
+
+
+    /*
+    ------------------------------------------------------
+    POPRZEDNIE ZDJĘCIE
+    ------------------------------------------------------
+    */
+
+    function previousImage() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        }
+
+        updateLightbox();
+    }
+
+
+    /*
+    ------------------------------------------------------
+    KLIKNIĘCIA W MINIATURY
+    ------------------------------------------------------
+    */
+
+    images.forEach((image, index) => {
 
         image.addEventListener("click", () => {
-            img.src = image.src;
-            lightbox.style.display = "flex";
+            openLightbox(index);
         });
+
     });
 
-    // Zamknięcie lightboxa
-    lightbox.addEventListener("click", () => {
-        lightbox.style.display = "none";
-        img.src = "";
-    });
 
-    // ESC zamyka lightbox
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            lightbox.style.display = "none";
-            img.src = "";
+    /*
+    ------------------------------------------------------
+    PRZYCISKI LIGHTBOXA
+    ------------------------------------------------------
+    */
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    nextButton.addEventListener("click", nextImage);
+
+    previousButton.addEventListener("click", previousImage);
+
+
+    /*
+    ------------------------------------------------------
+    KLIKNIĘCIE W TŁO
+    ------------------------------------------------------
+    
+    Kliknięcie poza zdjęciem zamyka lightbox.
+    */
+
+    lightbox.addEventListener("click", (event) => {
+
+        if (event.target === lightbox) {
+            closeLightbox();
         }
+
     });
+
+
+    /*
+    ------------------------------------------------------
+    KLAWIATURA
+    ------------------------------------------------------
+    */
+
+    document.addEventListener("keydown", (event) => {
+
+        if (!lightbox.classList.contains("is-open")) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+            closeLightbox();
+        }
+
+        if (event.key === "ArrowRight") {
+            nextImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousImage();
+        }
+
+    });
+
+
+    /*
+    ------------------------------------------------------
+    OBSŁUGA SWIPE NA TELEFONIE
+    ------------------------------------------------------
+    */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener("touchstart", (event) => {
+
+        touchStartX = event.changedTouches[0].screenX;
+
+    }, { passive: true });
+
+
+    lightbox.addEventListener("touchend", (event) => {
+
+        touchEndX = event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+    }, { passive: true });
+
+
+    function handleSwipe() {
+
+        const minimumSwipeDistance = 50;
+
+        const distance = touchEndX - touchStartX;
+
+        if (Math.abs(distance) < minimumSwipeDistance) {
+            return;
+        }
+
+        if (distance < 0) {
+            nextImage();
+        } else {
+            previousImage();
+        }
+
+    }
+
 
 });
