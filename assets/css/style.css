@@ -6,33 +6,25 @@ MICHAŁ MACURA — NOTATKI Z TERENU
 GŁÓWNY ARKUSZ STYLÓW
 ==========================================================
 
-Wspólny arkusz stylów dla:
-- strony głównej
-- portfolio i galerii
-- Notatek z terenu
-- pojedynczych wpisów
-- kontaktu
-- lightboxa
-- menu hamburgerowego
+Wspólne style strony głównej, portfolio, galerii,
+Notatek z terenu, kontaktu, menu i lightboxa.
 */
 
 
 /* ==========================================================
-   1. ZMIENNE GŁÓWNE
+   1. ZMIENNE I PODSTAWY
    ========================================================== */
 
 :root {
     --background: #fafafa;
     --text: #2d2d2d;
     --line: #d8d2c8;
+
     --max-width: 900px;
+
+    /* Rozmiar klasycznego hero-image na starszych podstronach. */
     --hero-size: 80%;
 }
-
-
-/* ==========================================================
-   2. RESET I PODSTAWY
-   ========================================================== */
 
 * {
     box-sizing: border-box;
@@ -56,11 +48,6 @@ body {
     font-family: "Manrope", sans-serif;
     line-height: 1.7;
 }
-
-
-/* ==========================================================
-   3. TYPOGRAFIA I LINKI
-   ========================================================== */
 
 h1,
 h2,
@@ -90,11 +77,12 @@ a:hover {
 
 
 /* ==========================================================
-   4. GŁÓWNY KONTENER PODSTRON
+   2. GŁÓWNY KONTENER PODSTRON
    ========================================================== */
 
 main {
     flex: 1;
+
     width: 100%;
     max-width: var(--max-width);
 
@@ -104,7 +92,7 @@ main {
 
 
 /* ==========================================================
-   5. KLASYCZNE MENU PODSTRON
+   3. KLASYCZNE MENU
    ========================================================== */
 
 .site-header {
@@ -113,7 +101,6 @@ main {
 
 .site-header::after {
     content: "";
-
     display: block;
 
     height: 1px;
@@ -142,7 +129,7 @@ main {
 
 
 /* ==========================================================
-   6. WSPÓLNE MENU HAMBURGEROWE
+   4. MENU HAMBURGEROWE I PODPIS
    ========================================================== */
 
 .home-header,
@@ -177,6 +164,7 @@ main {
 
 .signature-logo img {
     display: block;
+
     width: 100%;
     height: auto;
 }
@@ -191,7 +179,6 @@ main {
     padding: 0;
 
     display: flex;
-
     flex-direction: column;
     justify-content: center;
     gap: 6px;
@@ -213,7 +200,7 @@ main {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 
-/* Ciemny hamburger na jasnych podstronach. */
+/* Ciemna wersja hamburgera na jasnych podstronach. */
 .page-header .menu-toggle span {
     background: var(--text);
     box-shadow: none;
@@ -221,7 +208,7 @@ main {
 
 
 /* ==========================================================
-   7. ROZWIJANE MENU
+   5. ROZWIJANE MENU
    ========================================================== */
 
 .home-navigation {
@@ -234,7 +221,6 @@ main {
     height: 100vh;
 
     display: flex;
-
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
@@ -261,11 +247,12 @@ main {
 
 
 /* ==========================================================
-   8. STOPKA
+   6. STOPKA
    ========================================================== */
 
 .site-footer {
     width: 100%;
+
     padding: 2rem 1.5rem;
 
     text-align: center;
@@ -274,7 +261,6 @@ main {
 
 .site-footer::before {
     content: "";
-
     display: block;
 
     height: 1px;
@@ -292,25 +278,24 @@ main {
 
 .site-footer p {
     margin: 0;
-    text-align: center;
 }
 
 
 /* ==========================================================
-   9. STARSZA STRONA GŁÓWNA — HERO I INTRO
+   7. KLASYCZNA STRONA GŁÓWNA — HERO I INTRO
    ========================================================== */
 
 .hero-image {
-    width: min(100%, 100vw);
+    width: 100%;
     margin: 0 auto 2rem;
 }
 
 .hero-image img {
-    width: min(100%, var(--hero-size));
+    display: block;
 
+    width: min(100%, var(--hero-size));
     height: auto;
 
-    display: block;
     margin: 0 auto;
 }
 
@@ -321,7 +306,7 @@ main {
 
 
 /* ==========================================================
-   10. PORTFOLIO I GALERIE
+   8. PORTFOLIO I GALERIE
    ========================================================== */
 
 .photo-grid {
@@ -332,19 +317,19 @@ main {
 }
 
 .photo-grid img {
-    width: 100%;
-
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-
     display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
 
     cursor: pointer;
 }
 
 
 /* ==========================================================
-   11. NOTATKI Z TERENU — LISTA WPISÓW
+   9. NOTATKI Z TERENU — LISTA WPISÓW
    ========================================================== */
 
 .journal-entry {
@@ -353,14 +338,14 @@ main {
     grid-template-columns: 220px 1fr;
     gap: 1.5rem;
 
-    margin-bottom: 2rem;
-
     align-items: start;
+
+    margin-bottom: 2rem;
 }
 
 .journal-entry img {
-    width: 100%;
     display: block;
+    width: 100%;
 }
 
 .journal-entry h2 {
@@ -369,7 +354,7 @@ main {
 
 
 /* ==========================================================
-   12. NOTATKI Z TERENU — POJEDYNCZY WPIS
+   10. NOTATKI Z TERENU — POJEDYNCZY WPIS
    ========================================================== */
 
 .journal-post {
@@ -381,17 +366,14 @@ main {
     margin-bottom: 2rem;
 }
 
-.journal-post p {
-    margin: 2rem 0;
-}
-
+.journal-post p,
 .journal-post figure {
     margin: 2rem 0;
 }
 
 .journal-post img {
-    width: 100%;
     display: block;
+    width: 100%;
 }
 
 .journal-post figcaption {
@@ -403,7 +385,7 @@ main {
 
 
 /* ==========================================================
-   13. KONTAKT
+   11. KONTAKT
    ========================================================== */
 
 .contact-layout {
@@ -437,21 +419,19 @@ main {
 }
 
 .contact-photo img {
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
     display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 
 /* ==========================================================
-   14. LOGO ZPFP NA PODSTRONACH
+   12. LOGO ZPFP
    ========================================================== */
 
 .zpfp-logo {
     display: flex;
-
     justify-content: center;
 
     margin-top: 2rem;
@@ -464,13 +444,14 @@ main {
     transition: opacity 0.2s ease;
 }
 
-.zpfp-logo img:hover {
+.zpfp-logo img:hover,
+.home-zpfp:hover img {
     opacity: 0.75;
 }
 
 
 /* ==========================================================
-   15. LIGHTBOX
+   13. LIGHTBOX
    ========================================================== */
 
 .lightbox {
@@ -484,10 +465,10 @@ main {
 
     z-index: 1000;
 
-    backdrop-filter: blur(12px) saturate(40%);
-    background: rgba(20, 20, 20, 0.78);
-
     padding: 4rem 5rem;
+
+    background: rgba(20, 20, 20, 0.78);
+    backdrop-filter: blur(12px) saturate(40%);
 }
 
 .lightbox.is-open {
@@ -497,25 +478,23 @@ main {
 .lightbox-image {
     display: block;
 
-    max-width: 90vw;
-    max-height: 88vh;
-
     width: auto;
     height: auto;
+
+    max-width: 90vw;
+    max-height: 88vh;
 
     object-fit: contain;
 
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.25s ease;
 }
 
 .lightbox-close,
 .lightbox-previous,
 .lightbox-next {
     position: absolute;
+
+    z-index: 1001;
 
     border: 0;
     background: transparent;
@@ -525,8 +504,6 @@ main {
     cursor: pointer;
 
     font-family: Arial, sans-serif;
-
-    z-index: 1001;
 }
 
 .lightbox-close {
@@ -537,22 +514,21 @@ main {
     line-height: 1;
 }
 
-.lightbox-previous {
-    left: 1.2rem;
-
+.lightbox-previous,
+.lightbox-next {
     top: 50%;
-    transform: translateY(-50%);
 
     font-size: 2.5rem;
 }
 
+.lightbox-previous {
+    left: 1.2rem;
+    transform: translateY(-50%);
+}
+
 .lightbox-next {
     right: 1.2rem;
-
-    top: 50%;
     transform: translateY(-50%);
-
-    font-size: 2.5rem;
 }
 
 .lightbox-close:hover,
@@ -567,7 +543,7 @@ body.lightbox-open {
 
 
 /* ==========================================================
-   16. LIGHTBOX — DELIKATNE PRZEJŚCIE MIĘDZY ZDJĘCIAMI
+   14. LIGHTBOX — PRZEJŚCIA MIĘDZY ZDJĘCIAMI
    ========================================================== */
 
 .lightbox-image.slide-left {
@@ -604,7 +580,7 @@ body.lightbox-open {
 
 
 /* ==========================================================
-   17. STRONA GŁÓWNA — NOWY UKŁAD
+   15. STRONA GŁÓWNA — NOWY UKŁAD
    ========================================================== */
 
 .home-page {
@@ -621,12 +597,11 @@ body.lightbox-open {
 
 
 /* ==========================================================
-   18. STRONA GŁÓWNA — ZDJĘCIA
+   16. STRONA GŁÓWNA — ZDJĘCIA
    ========================================================== */
 
 .home-image-section {
     width: 100%;
-
     margin: 0;
 
     overflow: hidden;
@@ -641,22 +616,26 @@ body.lightbox-open {
 
 
 /* ==========================================================
-   19. STRONA GŁÓWNA — PIERWSZE HERO
+   17. STRONA GŁÓWNA — PIERWSZE HERO
    ========================================================== */
 
 .home-hero {
-    height: auto;
-    min-height: 0;
+    height: 100vh;
+    min-height: 600px;
 }
 
 .home-hero img {
+    display: block;
+
     width: 100%;
-    height: auto;
+    height: 100%;
+
+    object-fit: cover;
 }
 
 
 /* ==========================================================
-   20. STRONA GŁÓWNA — SEKCJE TEKSTOWE
+   18. STRONA GŁÓWNA — SEKCJE TEKSTOWE
    ========================================================== */
 
 .home-text-section {
@@ -665,7 +644,6 @@ body.lightbox-open {
 
 .home-text {
     max-width: 850px;
-
     margin: 0 auto;
 
     text-align: center;
@@ -686,11 +664,6 @@ body.lightbox-open {
     font-size: 1.1em;
 }
 
-
-/* ==========================================================
-   21. STRONA GŁÓWNA — TYTUŁY
-   ========================================================== */
-
 .home-text h2 {
     margin-bottom: 3rem;
 
@@ -700,30 +673,23 @@ body.lightbox-open {
     font-weight: 400;
 
     line-height: 1.1;
-
     text-transform: lowercase;
 }
-
-
-/* ==========================================================
-   22. STRONA GŁÓWNA — LINKI W TEKŚCIE
-   ========================================================== */
 
 .home-link {
     display: inline-block;
 
     margin-top: 1.5rem;
+    padding-bottom: 0.25rem;
 
     font-size: 0.9em;
 
     border-bottom: 1px solid currentColor;
-
-    padding-bottom: 0.25rem;
 }
 
 
 /* ==========================================================
-   23. STRONA GŁÓWNA — SEKCJA KOŃCOWA
+   19. STRONA GŁÓWNA — SEKCJA KOŃCOWA
    ========================================================== */
 
 .home-contact {
@@ -732,7 +698,6 @@ body.lightbox-open {
 
 .home-contact-content {
     max-width: 700px;
-
     margin: 0 auto;
 
     display: flex;
@@ -778,22 +743,13 @@ body.lightbox-open {
     transition: opacity 0.2s ease;
 }
 
-.home-zpfp:hover img {
-    opacity: 0.75;
-}
-
-
-/* ==========================================================
-   24. STRONA GŁÓWNA — STOPKA
-   ========================================================== */
-
 .home-page .site-footer {
     padding-top: 1rem;
 }
 
 
 /* ==========================================================
-   25. FADE-IN PODCZAS PRZEWIJANIA
+   20. FADE-IN PODCZAS PRZEWIJANIA
    ========================================================== */
 
 .fade-in {
@@ -808,13 +764,12 @@ body.lightbox-open {
 
 .fade-in.is-visible {
     opacity: 1;
-
     transform: translateY(0);
 }
 
 
 /* ==========================================================
-   26. RESPONSYWNOŚĆ — TABLET / ŚREDNI EKRAN
+   21. RESPONSYWNOŚĆ — TABLET
    ========================================================== */
 
 @media (max-width: 900px) {
@@ -825,7 +780,7 @@ body.lightbox-open {
 
 
 /* ==========================================================
-   27. RESPONSYWNOŚĆ — TELEFON
+   22. RESPONSYWNOŚĆ — TELEFON
    ========================================================== */
 
 @media (max-width: 700px) {
@@ -900,7 +855,6 @@ body.lightbox-open {
 
     .home-text {
         font-size: 1.3rem;
-        line-height: 1.7;
     }
 
     .home-text h2 {
@@ -911,8 +865,20 @@ body.lightbox-open {
         padding: 4rem 1.25rem 3rem;
     }
 
+    /*
+    Pierwsze hero na telefonie:
+    pokazuje całe zdjęcie bez przycinania.
+    */
     .home-hero {
-        min-height: 550px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .home-hero img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
     }
 
     .home-signature {
@@ -926,7 +892,7 @@ body.lightbox-open {
 
 
 /* ==========================================================
-   28. RESPONSYWNOŚĆ — BARDZO MAŁY EKRAN
+   23. RESPONSYWNOŚĆ — BARDZO MAŁY EKRAN
    ========================================================== */
 
 @media (max-width: 500px) {
