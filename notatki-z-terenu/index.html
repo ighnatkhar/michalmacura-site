@@ -7,83 +7,145 @@
 
     <title>Notatki z terenu – Michał Macura</title>
 
+    <meta name="description"
+        content="Notatki z terenu, eseje fotograficzne i przyrodnicze.">
+
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
 
     <!-- =========================
-     MENU
-     ========================= -->
+         MENU
+         ========================= -->
 
-<header class="page-header">
+    <header class="page-header">
 
-
-    <!-- PODPIS / LOGO -->
-
-    <a
-        href="../index.html"
-        class="signature-logo">
-
-        <img
-            src="../assets/images/site/signature.png"
-            alt="Michał Macura">
-
-    </a>
-
-
-    <!-- HAMBURGER -->
-
-    <button
-        class="menu-toggle"
-        aria-label="Otwórz menu"
-        aria-expanded="false">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
-
-
-    <!-- ROZWIJANE MENU -->
-
-    <nav class="home-navigation">
-
-        <a href="../index.html">
-            strona główna
+        <a href="../index.html" class="signature-logo">
+            <img src="../assets/images/site/signature.png" alt="Michał Macura">
         </a>
 
-        <a href="../notatki-z-terenu/">
-            notatki z terenu
-        </a>
+        <button
+            class="menu-toggle"
+            aria-label="Otwórz menu"
+            aria-expanded="false">
 
-        <a href="../portfolio/">
-            portfolio
-        </a>
+            <span></span>
+            <span></span>
+            <span></span>
 
-        <a href="../kontakt/">
-            kontakt
-        </a>
+        </button>
 
-    </nav>
+        <nav class="home-navigation">
 
+            <a href="../index.html">
+                strona główna
+            </a>
 
-</header>
+            <a href="../notatki-z-terenu/">
+                notatki z terenu
+            </a>
+
+            <a href="../portfolio/">
+                portfolio
+            </a>
+
+            <a href="../kontakt/">
+                kontakt
+            </a>
+
+        </nav>
+
+    </header>
+
 
     <main>
 
-        <!-- TYTUŁ -->
+        <!-- =========================
+             TYTUŁ
+             ========================= -->
 
-        <h1>Wkrótce...</h1>
+        <!--<section class="page-intro fade-in">
+            <h1>Portfolio</h1>
+        </section>-->
+
+
+        <!-- =========================
+             LISTA WPISÓW
+
+             Mała miniatura po lewej,
+             tytuł i opis po prawej.
+             Cały kafelek jest linkiem.
+             ========================= -->
+
+        <section class="portfolio-galleries">
+
+
+            <a href="wpis-a/" class="portfolio-gallery-card fade-in">
+
+                <div class="portfolio-gallery-thumbnail">
+                    <img src="wpis-a/img1.jpg" alt="Galeria A">
+                </div>
+
+                <div class="portfolio-gallery-info">
+                    <h2>Wpis A</h2>
+                    <p>Miejsce na krótki opis galerii.</p>
+                </div>
+
+            </a>
+
+
+        <!--    <a href="galeria-b/" class="portfolio-gallery-card fade-in">
+
+                <div class="portfolio-gallery-thumbnail">
+                    <img src="galeria-b/img1.jpg" alt="Galeria B">
+                </div>
+
+                <div class="portfolio-gallery-info">
+                    <h2>Galeria B</h2>
+                    <p>Miejsce na krótki opis galerii.</p>
+                </div>
+
+            </a> -->
+
+
+            <!--
+            =========================
+            DODAWANIE KOLEJNEJ GALERII
+
+            Skopiuj cały kafelek i zmień:
+            - nazwę folderu,
+            - tytuł,
+            - opis,
+            - zdjęcie miniatury.
+
+            <a href="galeria-c/" class="portfolio-gallery-card fade-in">
+
+                <div class="portfolio-gallery-thumbnail">
+                    <img src="galeria-c/img1.jpg" alt="Galeria C">
+                </div>
+
+                <div class="portfolio-gallery-info">
+                    <h2>Galeria C</h2>
+                    <p>Miejsce na krótki opis galerii.</p>
+                </div>
+
+            </a>
+            =========================
+            -->
+
+        </section>
 
     </main>
+
 
     <footer class="site-footer">
         <p>© 2026 michał macura</p>
     </footer>
 
-<script src="../assets/js/menu.js"></script>
+
+    <script src="../assets/js/scroll-fade.js"></script>
+    <script src="../assets/js/menu.js"></script>
 
 </body>
 
