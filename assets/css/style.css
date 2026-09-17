@@ -1017,3 +1017,15 @@ body.lightbox-open {
     }
 
 }
+
+.journal-follow a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: opacity 0.25s ease;
+}
+
+.journal-follow a:hover {
+    opacity: 0.55;
+}
