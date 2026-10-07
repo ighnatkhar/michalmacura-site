@@ -1029,3 +1029,25 @@ body.lightbox-open {
 .journal-follow a:hover {
     opacity: 0.55;
 }
+
+/* Kafelki social media */
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eeeeeb;
+    border: 1px solid #deded9;
+    border-radius: 6px;
+
+    color: #555;
+    text-decoration: none;
