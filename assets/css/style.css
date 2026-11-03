@@ -1259,3 +1259,7 @@ body.lightbox-open {
         width: 135px;
     }
 }
+
+.article-text-block p {
+    text-align: justify;
+}
