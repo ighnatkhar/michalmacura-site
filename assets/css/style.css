@@ -10,7 +10,6 @@ Wspólne style strony głównej, portfolio, galerii,
 Notatek z terenu, kontaktu, menu i lightboxa.
 */
 
-
 /* ==========================================================
    1. ZMIENNE I PODSTAWY
    ========================================================== */
@@ -75,7 +74,6 @@ a:hover {
     opacity: 0.7;
 }
 
-
 /* ==========================================================
    2. GŁÓWNY KONTENER PODSTRON
    ========================================================== */
@@ -89,7 +87,6 @@ main {
     margin: 0 auto;
     padding: 3rem 1.5rem;
 }
-
 
 /* ==========================================================
    3. KLASYCZNE MENU
@@ -126,7 +123,6 @@ main {
     font-size: 0.95rem;
     text-transform: lowercase;
 }
-
 
 /* ==========================================================
    4. MENU HAMBURGEROWE I PODPIS
@@ -206,7 +202,6 @@ main {
     box-shadow: none;
 }
 
-
 /* ==========================================================
    5. ROZWIJANE MENU
    ========================================================== */
@@ -245,7 +240,6 @@ main {
     letter-spacing: 0.02em;
 }
 
-
 /* ==========================================================
    6. STOPKA
    ========================================================== */
@@ -280,7 +274,6 @@ main {
     margin: 0;
 }
 
-
 /* ==========================================================
    7. KLASYCZNA STRONA GŁÓWNA — HERO I INTRO
    ========================================================== */
@@ -304,7 +297,6 @@ main {
     margin: 0 auto;
 }
 
-
 /* ==========================================================
    8. PORTFOLIO I GALERIE
    ========================================================== */
@@ -326,7 +318,6 @@ main {
 
     cursor: pointer;
 }
-
 
 /* ==========================================================
    9. NOTATKI Z TERENU — LISTA WPISÓW
@@ -351,7 +342,6 @@ main {
 .journal-entry h2 {
     margin-bottom: 0.5rem;
 }
-
 
 /* ==========================================================
    10. NOTATKI Z TERENU — POJEDYNCZY WPIS
@@ -382,7 +372,6 @@ main {
     font-size: 0.9rem;
     opacity: 0.7;
 }
-
 
 /* ==========================================================
    11. KONTAKT
@@ -425,7 +414,6 @@ main {
     aspect-ratio: 1 / 1;
 }
 
-
 /* ==========================================================
    12. LOGO ZPFP
    ========================================================== */
@@ -448,7 +436,6 @@ main {
 .home-zpfp:hover img {
     opacity: 0.75;
 }
-
 
 /* ==========================================================
    13. LIGHTBOX
@@ -541,7 +528,6 @@ body.lightbox-open {
     overflow: hidden;
 }
 
-
 /* ==========================================================
    14. LIGHTBOX — PRZEJŚCIA MIĘDZY ZDJĘCIAMI
    ========================================================== */
@@ -578,7 +564,6 @@ body.lightbox-open {
     }
 }
 
-
 /* ==========================================================
    15. STRONA GŁÓWNA — NOWY UKŁAD
    ========================================================== */
@@ -594,7 +579,6 @@ body.lightbox-open {
     margin: 0;
     padding: 0;
 }
-
 
 /* ==========================================================
    16. STRONA GŁÓWNA — ZDJĘCIA
@@ -614,7 +598,6 @@ body.lightbox-open {
     height: auto;
 }
 
-
 /* ==========================================================
    17. STRONA GŁÓWNA — PIERWSZE HERO
    ========================================================== */
@@ -632,7 +615,6 @@ body.lightbox-open {
 
     object-fit: cover;
 }
-
 
 /* ==========================================================
    18. STRONA GŁÓWNA — SEKCJE TEKSTOWE
@@ -686,7 +668,6 @@ body.lightbox-open {
 
     border-bottom: 1px solid currentColor;
 }
-
 
 /* ==========================================================
    19. STRONA GŁÓWNA — SEKCJA KOŃCOWA
@@ -747,7 +728,6 @@ body.lightbox-open {
     padding-top: 1rem;
 }
 
-
 /* ==========================================================
    20. FADE-IN PODCZAS PRZEWIJANIA
    ========================================================== */
@@ -767,7 +747,6 @@ body.lightbox-open {
     transform: translateY(0);
 }
 
-
 /* ==========================================================
    21. RESPONSYWNOŚĆ — TABLET
    ========================================================== */
@@ -777,7 +756,6 @@ body.lightbox-open {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
 
 /* ==========================================================
    22. RESPONSYWNOŚĆ — TELEFON
@@ -890,7 +868,6 @@ body.lightbox-open {
     }
 }
 
-
 /* ==========================================================
    23. RESPONSYWNOŚĆ — BARDZO MAŁY EKRAN
    ========================================================== */
@@ -940,7 +917,6 @@ body.lightbox-open {
     transform: translateY(-4px);
 }
 
-
 /* MINIATURA */
 
 .portfolio-gallery-thumbnail {
@@ -963,7 +939,6 @@ body.lightbox-open {
     transform: scale(1.03);
 }
 
-
 /* TEKST */
 
 .portfolio-gallery-info {
@@ -985,7 +960,6 @@ body.lightbox-open {
     font-weight: 300;
     line-height: 1.6;
 }
-
 
 /* =========================
    TELEFON
@@ -1075,7 +1049,6 @@ body.lightbox-open {
     display: flex;
     justify-content: center;
 }
-
 
 /* =====================================================
    NOTATKI Z TERENU – POJEDYNCZY WPIS
@@ -1264,11 +1237,15 @@ body.lightbox-open {
     text-align: justify;
 }
 
-
-
-/* Kafelek prowadzący do galerii */
+/* ==========================================================
+   24. KAFEL PROWADZĄCY DO GALERII
+   Zdjęcie podawane indywidualnie w HTML przez --gallery-image.
+   ========================================================== */
 
 .article-gallery-tile {
+    position: relative;
+    isolation: isolate;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1276,22 +1253,29 @@ body.lightbox-open {
     width: 100%;
     aspect-ratio: 16 / 6;
     margin: 4rem 0;
+    overflow: hidden;
 
-    background-image:
-        linear-gradient(
-            rgba(255, 255, 255, 0.8),
-            rgba(255, 255, 255, 0.8)
-        ),
-        var(--gallery-image);
-
+    background-image: var(--gallery-image);
     background-size: cover;
     background-position: center;
 
     text-decoration: none;
-    overflow: hidden;
+}
+
+.article-gallery-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s ease;
 }
 
 .article-gallery-tile span {
+    position: relative;
+    z-index: 1;
+
     font-family: "Manrope", sans-serif;
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 600;
@@ -1303,6 +1287,21 @@ body.lightbox-open {
     transition: letter-spacing 0.3s ease;
 }
 
+.article-gallery-tile:hover {
+    opacity: 1;
+}
+
 .article-gallery-tile:hover span {
     letter-spacing: 0.25em;
+}
+
+@media (max-width: 700px) {
+    .article-gallery-tile {
+        aspect-ratio: 4 / 3;
+        margin: 2.5rem 0;
+    }
+
+    .article-gallery-tile span {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
 }
