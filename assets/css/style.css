@@ -1263,3 +1263,46 @@ body.lightbox-open {
 .article-text-block p {
     text-align: justify;
 }
+
+
+
+/* Kafelek prowadzący do galerii */
+
+.article-gallery-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    aspect-ratio: 16 / 6;
+    margin: 4rem 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.8)
+        ),
+        var(--gallery-image);
+
+    background-size: cover;
+    background-position: center;
+
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.article-gallery-tile span {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+
+    color: transparent;
+    -webkit-text-stroke: 1px #222;
+
+    transition: letter-spacing 0.3s ease;
+}
+
+.article-gallery-tile:hover span {
+    letter-spacing: 0.25em;
+}
